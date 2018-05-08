@@ -1,0 +1,42 @@
+
+
+Total Possibilities -->  43046721
+
+Sunrisers Hyderabad :
+Eliminator -> 664848 	OUT of tour -> 0 	Qualifier -> 42381873 	
+possibility for playoff%: 100.0 
+
+Chennai Super Kings :
+Eliminator -> 7645266 	OUT of tour -> 22032 	Qualifier -> 35379423 	
+possibility for playoff%: 99.9488184013
+
+Kings XI Punjab :
+Eliminator -> 28463793 	OUT of tour -> 1496325 	Qualifier -> 13086603 	
+possibility for playoff%: 96.5239512668
+
+Kolkata Knight Riders :
+Eliminator -> 29320161 	OUT of tour -> 11564643 	Qualifier -> 2161917 	
+possibility for playoff%: 73.1346715119
+
+Mumbai Indians :
+Eliminator -> 11019930 	OUT of tour -> 31906938 	Qualifier -> 119853 	
+possibility for playoff%: 25.8783543583
+
+Rajasthan Royals :
+Eliminator -> 10652784 	OUT of tour -> 32246112 	Qualifier -> 147825 	
+possibility for playoff%: 25.0904337174 
+
+
+Royal Challengers Bangalore :
+Eliminator -> 1356642 	OUT of tour -> 41689872 	Qualifier -> 207 	
+possibility for playoff%: 3.15203799147
+
+Delhi Daredevils :
+Eliminator -> 1223589 	OUT of tour -> 41822925 	Qualifier -> 207 	
+possibility for playoff%: 2.84294824686
+ 
+
+ 
+
+
+ 
