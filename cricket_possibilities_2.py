@@ -11,9 +11,9 @@ soupedPage = soup(page)
 teamsPage = soupedPage.findAll( "div", {"class": "cb-col-75 cb-col"} )
 
 MatchesDataInOrder = []
-for i in range(len(teamsPage)):
-    AvsB = teamsPage[i].find("span")
-    WinningTeam = teamsPage[i].find( "a", {"class": "cb-text-link"} )
+for totalScenarios in range( len( teamsPage ) ):
+    AvsB = teamsPage[totalScenarios].find( "span" )
+    WinningTeam = teamsPage[totalScenarios].find( "a", {"class": "cb-text-link"} )
     team1,team2 = map(teamsAbbr.get,map(str.strip,map(str,AvsB.contents[0].split(",")[0].split(" vs "))))
     if WinningTeam!=None:
         winner = teamsAbbr[str(WinningTeam.contents[0].split("won")[0]).strip()]
@@ -22,7 +22,7 @@ for i in range(len(teamsPage)):
     MatchesDataInOrder.append([team1,team2,winner])
 
 pointsPerTeam = {}
-i = 0
+totalScenarios = 0
 positions = {}
 
 for team in teams.keys():
@@ -31,15 +31,16 @@ for team in teams.keys():
 
 def updatePossibilities(pointsTable, index):
 
-    if index == 7:
-        pointsTable.sort(key=lambda x:x[1])
+    if index == 0:
+        pointsTable.sort(key=lambda x: x[1])
         pointsTable.reverse()
 
+    if index == 7:
         allPoints = []
         for team in pointsTable:
-            allPoints.append(team[1])
+            allPoints.append(team[0])
         for team,points in pointsTable:
-            stat = allPoints.index(points)
+            stat = allPoints.index(team)
             if stat<2:
                 positions[team]['Qualifier'] += 1
             elif stat<4:
@@ -56,9 +57,7 @@ def updatePossibilities(pointsTable, index):
         updatePossibilities(pointsTable, index+1)
 
 def findAllPossiblities(matchdata, index, totalMatches, pointsPerTeam):
-    global i
     if index==totalMatches-1:
-        i += 1
         updatePossibilities(zip(pointsPerTeam.keys(),pointsPerTeam.values()), 0)
         return
     team1,team2,winner = matchdata[index]
@@ -82,14 +81,13 @@ def findAllPossiblities(matchdata, index, totalMatches, pointsPerTeam):
         pointsPerTeam[winner] -= 2
 findAllPossiblities( MatchesDataInOrder[:len( MatchesDataInOrder ) - 4], 0, len( MatchesDataInOrder ) - 3, pointsPerTeam )
 
-i = 0
+totalScenarios = 0
 for stat in positions['csk']:
-    i += positions['csk'][stat]
+    totalScenarios += positions['csk'][stat]
 
-print i, "Scenarios Ran"
+print totalScenarios, "Scenarios Ran"
 for key in positions:
     print teams[key].upper()
-    su = 0
     for stat in positions[key]:
-        print stat.upper(),"-->",positions[key][stat]*100/float(i),"%"
+        print stat.upper(),"-->", positions[key][stat]*100 / float( totalScenarios ), "%"
     print
